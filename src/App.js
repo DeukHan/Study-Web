@@ -4,6 +4,7 @@ import './App.css';
 import TOC from  './Components/TOC'
 import Content from './Components/Content';
 import Subject from './Components/Subject';
+import { buildQueries } from '@testing-library/react';
 
 
 //function App() {
@@ -40,7 +41,11 @@ import Subject from './Components/Subject';
             <h1><a href="/"onClick={function(e){
               console.log(e);
               e.preventDefault()
-            }}>{this.state.Subject.title}</a></h1>
+              this.state.mode = 'welcome';
+              this.setState({
+                mode:'welcome'
+              });
+            }.bind(this)}>{this.state.Subject.title}</a></h1>
             {this.state.Subject.sub}
           </header>
           <TOC data={this.state.contents}></TOC>
