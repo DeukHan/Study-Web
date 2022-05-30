@@ -1,4 +1,5 @@
 import React, { Component, useState } from 'react'
+import axios from 'axios'
 
 function SignUp (){
 
@@ -26,6 +27,13 @@ function SignUp (){
         setConfirmPassword(event.currentTarget.value)
     }
 
+    const callApi = async()=>{
+        axios.get("/signup").then((res)=>{
+            console.log(res.data)
+            alert('axios call');
+        });
+    };
+
     const onSubmitHandler = (event) => {
         event.preventDefault();
 
@@ -41,6 +49,20 @@ function SignUp (){
             password: Password,
             name: Name
         }
+
+        callApi();
+
+        // axios.post("http://localhost:3001/signup", {
+        //     body
+        // }).then(function (response) {
+        //     if(response.data.code === 0){
+        //         alert('OK');
+        //     } else {
+        //         alert('NG');
+        //     }
+        // }).catch(function (error) {
+        //     console.log(error);
+        // });
     }
 
     return (
