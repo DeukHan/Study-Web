@@ -1,7 +1,3 @@
 # Toy Program Strat
 # http-proxy-middleware 모듈을 사용하여 서버와 통신하기
-<<<<<<< HEAD
- - http-proxy-middleware를 사용하면 setupProxy.js를 만들어 IP와 포트를 관리할 수 있다.??
-=======
- - http-proxy-middleware를 사용하면 setupProxy.js를 만들어 IP와 포트를 관리할 수 있다.??
->>>>>>> 0ccc1c57a99e02bfe265fa95e06fb41d1cc73bfa
+ - http-proxy-middleware를 사용하면 setupProxy.js를 만들어 IP와 포트를 관리할 수 있다.
