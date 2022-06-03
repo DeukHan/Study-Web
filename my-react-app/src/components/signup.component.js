@@ -3,10 +3,10 @@ import axios from 'axios'
 
 function SignUp (){
 
-    const [ID, setID] = useState(" ")
-    const [Password, setPassword] = useState(" ")
-    const [Name, setName] = useState(" ")
-    const [ConfirmPassword, setConfirmPassword] = useState(" ")
+    const [ID, setID] = useState("")
+    const [Password, setPassword] = useState("")
+    const [Name, setName] = useState("")
+    const [ConfirmPassword, setConfirmPassword] = useState("")
 
     const onIDHandler = (event) => {
         console.log('ID : ', event.currentTarget.value);
@@ -27,8 +27,18 @@ function SignUp (){
         setConfirmPassword(event.currentTarget.value)
     }
 
-    const callApi = async()=>{
-        axios.get("/signup").then((res)=>{
+    const callSignup = async(body)=>{
+        // axios.get("/api", {
+        //     body
+        // }).then((res)=>{
+        //     console.log(res.data)
+        //     alert('axios call');
+        // });
+
+        axios.post("/signup", JSON.stringify(body), {
+          headers: {
+            "Content-Type": `application/json`,},
+        }).then((res) => {
             console.log(res.data)
             alert('axios call');
         });
@@ -45,12 +55,12 @@ function SignUp (){
         }
 
         let body={
-            ID: ID,
-            password: Password,
-            name: Name
+            userID: ID,
+            userPW: Password,
+            userName: Name
         }
 
-        callApi();
+        callSignup(body);
 
         // axios.post("http://localhost:3001/signup", {
         //     body
@@ -110,7 +120,7 @@ function SignUp (){
             </button>
         </div>
         <p className="forgot-password text-right">
-            Already registered <a href="/sign-in">sign in?</a>
+            Already registered <a href="/signin">sign in?</a>
         </p>
         </form>
     )
